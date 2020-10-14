@@ -50,77 +50,38 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  TextEditingController primeiroNumeroController = TextEditingController();
-  TextEditingController segundoNumeroController = TextEditingController();
-  double resultado = 0;
-
-  subtrair() {
-    setState(() {
-      resultado = double.parse(primeiroNumeroController.text) -
-          double.parse(segundoNumeroController.text);
-    });
-  }
-
-  somar() {
-    setState(() {
-      resultado = double.parse(primeiroNumeroController.text) +
-          double.parse(segundoNumeroController.text);
-    });
-  }
-
-  multiplicar() {
-    setState(() {
-      resultado = double.parse(primeiroNumeroController.text) *
-          double.parse(segundoNumeroController.text);
-    });
-  }
-
-  dividir() {
-    setState(() {
-      resultado = double.parse(primeiroNumeroController.text) /
-          double.parse(segundoNumeroController.text);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Container(
-        child: Column(
-          children: [
-            TextField(
-              controller: primeiroNumeroController,
-              decoration: InputDecoration(labelText: "Primeiro Número"),
-            ),
-            TextField(
-              controller: segundoNumeroController,
-              decoration: InputDecoration(labelText: "Segundo Número"),
-            ),
-            RaisedButton(
-              onPressed: somar,
-              child: Text("Somar"),
-            ),
-            RaisedButton(
-              onPressed: subtrair,
-              child: Text("Subtrair"),
-            ),
-            RaisedButton(
-              onPressed: multiplicar,
-              child: Text("Multiplicar os corno"),
-            ),
-            RaisedButton(
-              onPressed: dividir,
-              child: Text("Dividir os corno"),
-            ),
-            Text("Resultado: $resultado"),
-            Container(
-              child: Image.asset("gabriel.jpg"),
-            ),
-            Text("Pimbolinha"),
-          ],
+      body: Center(
+        child: Container(
+          height: 500,
+          width: 300,
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Name',
+                ),
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Password',
+                ),
+                obscureText: true,
+              ),
+              Container(
+                height: 50,
+                width: double.infinity,
+                child: RaisedButton(
+                  onPressed: () => {},
+                  child: Text("Login"),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
